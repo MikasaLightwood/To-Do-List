@@ -79,3 +79,8 @@ addBtn.addEventListener("click", () => {
     render();
   }
 });
+
+// Also add task when pressing Enter
+taskInput.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") addBtn.click();
+});
