@@ -38,7 +38,7 @@ const taskInput = document.getElementById("taskInput");
 const addBtn = document.getElementById("addBtn");
 const taskList = document.getElementById("taskList");
 
-// Renders the tasks on the page
+// Renders the tasks
 function render() {
   taskList.innerHTML = "";
 
@@ -68,3 +68,14 @@ function render() {
     taskList.appendChild(li);
   });
 }
+
+// Add button functionality
+addBtn.addEventListener("click", () => {
+  const desc = taskInput.value.trim();
+  if (desc) {
+    const newTask = new Task(desc);
+    myList.addTask(newTask);
+    taskInput.value = "";
+    render();
+  }
+});
