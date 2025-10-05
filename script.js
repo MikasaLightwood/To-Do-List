@@ -37,3 +37,34 @@ myList.addTask(new Task("Drink more water 💧"));
 const taskInput = document.getElementById("taskInput");
 const addBtn = document.getElementById("addBtn");
 const taskList = document.getElementById("taskList");
+
+// Renders the tasks on the page
+function render() {
+  taskList.innerHTML = "";
+
+  myList.tasks.forEach(task => {
+    const li = document.createElement("li");
+    li.textContent = task.description;
+
+    if (task.isDone) li.classList.add("done");
+
+    // Mark done when clicked
+    li.addEventListener("click", () => {
+      task.markDone();
+      render();
+    });
+
+    // Delete button
+    const delBtn = document.createElement("button");
+    delBtn.textContent = "Delete";
+    delBtn.classList.add("delete");
+    delBtn.addEventListener("click", (e) => {
+      e.stopPropagation(); // prevents marking done when deleting
+      myList.removeTask(task.description);
+      render();
+    });
+
+    li.appendChild(delBtn);
+    taskList.appendChild(li);
+  });
+}
