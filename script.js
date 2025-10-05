@@ -9,11 +9,6 @@ Task.prototype.markDone = function() {
   this.isDone = true;
 };
 
-// Toggle done (mark or unmark)
-Task.prototype.toggleDone = function() {
-  this.isDone = !this.isDone;
-};
-
 // --- ToDoList Constructor ---
 function ToDoList() {
   this.tasks = [];
@@ -33,17 +28,17 @@ ToDoList.prototype.removeTask = function(description) {
 const myList = new ToDoList();
 
 // Pre-filled tasks
-myList.addTask(new Task("Finish JavaScript homework"));
+myList.addTask(new Task("Finish JavaScript project"));
 myList.addTask(new Task("Organize bookshelf"));
-myList.addTask(new Task("Photo project for Work"));
-myList.addTask(new Task("Plan weekend trip for family"));
-myList.addTask(new Task("Bake cookies for family hangout."));
+myList.addTask(new Task("Bake cookies for hangout"));
+myList.addTask(new Task("Plan weekend outing"));
+myList.addTask(new Task("Read a new book"));
 
 const taskInput = document.getElementById("taskInput");
 const addBtn = document.getElementById("addBtn");
 const taskList = document.getElementById("taskList");
 
-// Renders the tasks
+// Renders the tasks on the page
 function render() {
   taskList.innerHTML = "";
 
@@ -53,12 +48,11 @@ function render() {
 
     if (task.isDone) li.classList.add("done");
 
-    // Toggle done when clicked
+    // Mark done when clicked
     li.addEventListener("click", () => {
-      task.toggleDone();
-    myList.saveToLocalStorage();
+      task.markDone();
       render();
-  });
+    });
 
     // Delete button
     const delBtn = document.createElement("button");
@@ -91,6 +85,6 @@ taskInput.addEventListener("keydown", (e) => {
   if (e.key === "Enter") addBtn.click();
 });
 
-// Initial render
+// Render initial list
 render();
-// --- End of script.js ---
+// --- END OF SCRIPT ---
