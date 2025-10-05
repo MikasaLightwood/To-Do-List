@@ -60,7 +60,6 @@ function render() {
       render();
   });
 
-
     // Delete button
     const delBtn = document.createElement("button");
     delBtn.textContent = "Delete";
