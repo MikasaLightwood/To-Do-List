@@ -84,3 +84,7 @@ addBtn.addEventListener("click", () => {
 taskInput.addEventListener("keydown", (e) => {
   if (e.key === "Enter") addBtn.click();
 });
+
+// Initial render
+render();
+// --- End of script.js ---
