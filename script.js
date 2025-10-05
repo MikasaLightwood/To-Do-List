@@ -13,3 +13,13 @@ Task.prototype.markDone = function() {
 function ToDoList() {
   this.tasks = [];
 }
+
+// Add a task
+ToDoList.prototype.addTask = function(task) {
+  this.tasks.push(task);
+};
+
+// Remove a task by description
+ToDoList.prototype.removeTask = function(description) {
+  this.tasks = this.tasks.filter(t => t.description !== description);
+};
