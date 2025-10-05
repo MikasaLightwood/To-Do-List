@@ -69,3 +69,9 @@ button.delete {
 button.delete:hover {
   background-color: darkred;
 }
+
+.done {
+  text-decoration: line-through;
+  color: gray;
+  opacity: 0.7;
+}
