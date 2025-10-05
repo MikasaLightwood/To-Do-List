@@ -29,10 +29,10 @@ const myList = new ToDoList();
 
 // Pre-filled tasks
 myList.addTask(new Task("Finish JavaScript homework"));
-myList.addTask(new Task("Organize photo folder"));
-myList.addTask(new Task("Call Mom"));
-myList.addTask(new Task("Plan weekend project"));
-myList.addTask(new Task("Drink more water 💧"));
+myList.addTask(new Task("Organize bookshelf"));
+myList.addTask(new Task("Photo project for Work"));
+myList.addTask(new Task("Plan weekend trip for family"));
+myList.addTask(new Task("Bake cookies for family hangout."));
 
 const taskInput = document.getElementById("taskInput");
 const addBtn = document.getElementById("addBtn");
