@@ -9,6 +9,11 @@ Task.prototype.markDone = function() {
   this.isDone = true;
 };
 
+// Toggle done (mark or unmark)
+Task.prototype.toggleDone = function() {
+  this.isDone = !this.isDone;
+};
+
 // --- ToDoList Constructor ---
 function ToDoList() {
   this.tasks = [];
@@ -48,11 +53,13 @@ function render() {
 
     if (task.isDone) li.classList.add("done");
 
-    // Mark done when clicked
+    // Toggle done when clicked
     li.addEventListener("click", () => {
-      task.markDone();
+      task.toggleDone();
+    myList.saveToLocalStorage();
       render();
-    });
+  });
+
 
     // Delete button
     const delBtn = document.createElement("button");
